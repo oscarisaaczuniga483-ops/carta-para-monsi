@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffe4e1; /* Color rosita suave */
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    /* Imágenes de los lados */
+    .side-img {
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border: 5px solid white;
+    }
+
+    /* Contenedor central (Carta, My Melody y Pastel) */
+    .center-scene {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    /* My Melody arriba de la carta */
+    .my-melody {
+      width: 120px;
+      margin-bottom: -20px; /* Para que quede pegadita a la carta */
+      z-index: 5;
+    }
+
+    /* El pastel debajo de la carta */
+    .cake {
+      width: 150px;
+      margin-top: -30px; /* Para que la carta parezca estar sobre el pastel */
+      z-index: 5;
+    }
+
+    /* --- ESTILOS DE LA CARTA --- */
+    .container {
+      position: relative;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .envelope {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      background-color: #ff9fb6; /* Color del sobre */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-top: 100px solid #ff7a9e;
+      transform-origin: top;
+      transition: transform 0.6s ease;
+      z-index: 4;
+    }
+
+    .front {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-bottom: 100px solid #ff88a8;
+      z-index: 3;
+    }
+
+    .letter {
+      position: absolute;
+      bottom: 0;
+      width: 260px;
+      height: 180px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.6s ease;
+      z-index: 2;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .letter h1 {
+      font-size: 22px;
+      color: #d81b60;
+      margin-top: 0;
+    }
+
+    .letter p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    /* --- ANIMACIONES AL HACER CLIC --- */
+    /* La clase .open se añade con JavaScript al hacer clic */
+    .container.open .flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+    
+    .container.open .letter {
+      transform: translateY(-120px);
+      z-index: 6;
+    }
+
+    /* Pequeño texto para indicar que se debe hacer clic */
+    .click-me {
+      position: absolute;
+      bottom: 20px;
+      color: white;
+      font-weight: bold;
+      background: rgba(0,0,0,0.5);
+      padding: 5px 10px;
+      border-radius: 10px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .container.open .click-me {
+      display: none; /* Se oculta al abrir */
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="cancion">
+    <source src="ENLACE_DE_TU_MUSICA.mp3" type="audio/mpeg">
+  </audio>
+
+  <img src="ENLACE_IMAGEN_1" class="side-img" alt="Foto Izquierda">
+
+  <div class="center-scene">
+    
+    <img src="ENLACE_MY_MELODY" class="my-melody" alt="My Melody">
+
+    <div class="container" id="carta-container" onclick="abrirCarta()">
+      <div class="flap"></div>
+      <div class="envelope">
+        
+        <div class="letter">
+          <h1>¡Feliz Cumpleaños! 🎂</h1>
+          <p>Escribe aquí tu mensaje bonito.</p>
+          <p>Dile todo lo que sientes y deséale lo mejor en su día.</p>
+        </div>
+        
+        <div class="front"></div>
+        <div class="click-me">¡Toca la carta!</div>
+      </div>
+    </div>
+
+    <img src="ENLACE_PASTEL" class="cake" alt="Pastel">
+
+  </div>
+
+  <img src="ENLACE_IMAGEN_2" class="side-img" alt="Foto Derecha">
+
+  <script>
+    function abrirCarta() {
+      // Abre la carta
+      document.getElementById('carta-container').classList.add('open');
+      
+      // Reproduce la música
+      var musica = document.getElementById('cancion');
+      musica.play();
+    }
+  </script>
+
+</body>
+</html>
