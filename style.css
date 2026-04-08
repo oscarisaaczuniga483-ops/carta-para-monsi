@@ -13,11 +13,11 @@ body {
 .escena {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Fotos a los extremos, pastel al centro */
-    width: 95%;
-    max-width: 1600px; /* Aumentamos el ancho máximo para dar aire */
-    gap: 40px; /* Aumentamos el espacio entre fotos y pastel */
-    padding: 20px;
+    justify-content: center; /* Centra todo */
+    width: 100%;
+    height: 100vh; /* Usa el alto de la pantalla */
+    gap: 20px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
