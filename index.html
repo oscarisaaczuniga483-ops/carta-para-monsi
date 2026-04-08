@@ -3,35 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños!</title>
+    <title>Regalo de Cumpleaños</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <!-- Foto Izquierda -->
-        <div class="photo-container" onclick="playMusic(this)">
-            <div class="overlay">Tócame ✨</div>
-            <img src="foto1.jpg" alt="Foto 1" class="photo">
-        </div>
+    <div class="main-wrapper">
+        <div class="content-container">
+            
+            <div class="photo-container" onclick="playMusic(this)">
+                <div class="overlay">Tócame ✨</div>
+                <img src="foto1.jpg" alt="Foto 1" class="photo">
+            </div>
 
-        <!-- Pastel Central -->
-        <div class="cake-container">
-            <img src="https://cdn-icons-png.flaticon.com/512/2830/2830405.png" alt="Pastel" class="cake">
-            <h1>¡Feliz Cumpleaños!</h1>
-        </div>
+            <div class="center-zone">
+                
+                <div id="cake-section" class="cake-container" onclick="revealLetter()">
+                    <img src="pastel.png" alt="Pastel de Cumpleaños" class="cake-img">
+                    <h1>¡Toca el pastel!</h1>
+                </div>
 
-        <!-- Foto Derecha -->
-        <div class="photo-container" onclick="playMusic(this)">
-            <div class="overlay">Tócame ✨</div>
-            <img src="foto2.jpg" alt="Foto 2" class="photo">
+                <div id="letter-section" class="letter-container hidden">
+                    <div class="letter-paper">
+                        <h2>Para ti...</h2>
+                        <p>Aquí escribirás tu mensaje especial más adelante.</p>
+                        <p>Puse un diseño básico por ahora esperando tus instrucciones.</p>
+                        <p>Con cariño,</p>
+                        <p>Yo ❤️</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="photo-container" onclick="playMusic(this)">
+                <div class="overlay">Tócame ✨</div>
+                <img src="foto2.jpg" alt="Foto 2" class="photo">
+            </div>
         </div>
     </div>
 
-    <!-- Archivo de música -->
     <audio id="birthday-song">
         <source src="musica.mp3" type="audio/mpeg">
-        Tu navegador no soporta el audio.
     </audio>
 
     <script src="script.js"></script>
