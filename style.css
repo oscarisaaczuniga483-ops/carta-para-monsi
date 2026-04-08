@@ -85,12 +85,23 @@ body {
 
 /* --- ¡EL CAMBIO PRINCIPAL: PASTEL MUCHO MÁS GRANDE! --- */
 .pastel-animado-gigante {
-    width: 600px; /* ¡Ahora es IMPORENTE! */
+    width: 100%;
+    max-width: 500px; /* Tamaño máximo en PC */
     height: auto;
     cursor: pointer;
     animation: flotar 3s ease-in-out infinite;
-    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.3)); /* Sombra más dramática */
-    transition: transform 0.3s ease;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.3));
+}
+
+/* En pantallas pequeñas, el pastel se encoge automáticamente */
+@media (max-width: 1200px) {
+    .pastel-animado-gigante {
+        max-width: 350px;
+    }
+    .foto-lateral {
+        width: 200px;
+        height: 300px;
+    }
 }
 
 /* Pequeño efecto al tocar el pastel antes de desaparecer */
@@ -112,15 +123,31 @@ body {
 .carta-clasica {
     background-color: #fdf5e6;
     width: 90%;
-    max-width: 500px; /* Un poco más ancha para equilibrar */
-    padding: 40px;
-    border-radius: 2px;
+    max-width: 450px; 
+    max-height: 70vh; /* IMPORTANTE: No ocupará más del 70% de la altura de la pantalla */
+    padding: 30px;
+    border-radius: 5px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 0 50px rgba(222, 184, 135, 0.2);
     position: relative;
     border: 1px solid #d2b48c;
-    line-height: 1.6;
-    color: #4e342e;
-    animation: aparecerCarta 1.5s ease-out forwards;
+    display: flex;
+    flex-direction: column; /* Organiza el contenido en vertical */
+    overflow: hidden; /* Evita que el papel se estire */
+}
+
+.contenido-carta {
+    overflow-y: auto; /* Si el texto es largo, saldrá una barrita de scroll SOLO en el texto */
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+/* Personalizar la barrita de scroll para que se vea bonita */
+.contenido-carta::-webkit-scrollbar {
+    width: 5px;
+}
+.contenido-carta::-webkit-scrollbar-thumb {
+    background: #d81b60;
+    border-radius: 10px;
 }
 
 .melody-carta {
