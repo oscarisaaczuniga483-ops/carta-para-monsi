@@ -1,74 +1,112 @@
 body {
-    background-color: #fce4ec;
+    background-color: #fce4ec; /* Rosa pastel de fondo */
+    margin: 0;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    font-family: 'Arial', sans-serif;
     overflow: hidden;
 }
 
-.container {
+.main-wrapper {
+    width: 90%;
+    max-width: 1000px;
+}
+
+.content-container {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px; /* Espacio entre fotos y centro */
 }
 
-.cake-container {
-    text-align: center;
-}
-
-.cake {
-    width: 200px;
-    animation: float 3s ease-in-out infinite;
-}
-
+/* Estilos de las Fotos (Se mantienen igual) */
 .photo-container {
     position: relative;
     width: 150px;
-    height: 200px;
+    height: 220px;
     border: 5px solid white;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     cursor: pointer;
     overflow: hidden;
+    flex-shrink: 0; /* No dejan que las fotos se achiquen */
 }
 
 .photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(10px); /* Foto tapada inicialmente */
+    filter: blur(15px);
     transition: filter 0.5s ease;
 }
 
 .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: #ff80ab;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
+    display: flex; justify-content: center; align-items: center;
+    color: white; font-weight: bold;
     z-index: 2;
     transition: opacity 0.5s ease;
 }
 
-/* Cuando se revela la foto */
-.photo-container.revealed .overlay {
-    opacity: 0;
+.photo-container.revealed .overlay { opacity: 0; }
+.photo-container.revealed .photo { filter: blur(0); }
+
+/* Estilos de la Zona Central */
+.center-zone {
+    flex-grow: 1; /* Ocupa el espacio disponible en medio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 300px;
 }
 
-.photo-container.revealed .photo {
-    filter: blur(0);
+/* Pastel (Animación e imagen) */
+.cake-container {
+    text-align: center;
+    cursor: pointer;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cake-img {
+    width: 250px; /* Ajusta el tamaño de tu pastel aquí */
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* La carta (Inicialmente oculta) */
+.letter-container {
+    position: absolute;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.letter-paper {
+    background-color: #fffde7; /* Color papel viejo/crema */
+    padding: 20px;
+    width: 80%;
+    height: 300px; /* Tamaño placeholder de la carta */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    position: relative;
+    overflow-y: auto; /* Por si el texto es muy largo */
+    color: #5d4037; /* Color de letra marrón oscuro */
+}
+
+/* Clase para ocultar elementos suavemente */
+.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none; /* No se puede tocar mientras está oculto */
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-15px); }
 }
