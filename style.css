@@ -1,112 +1,100 @@
 body {
-    background-color: #fce4ec; /* Rosa pastel de fondo */
+    background: #fff0f5; /* Color lavanda/rosa muy suave */
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    overflow: hidden;
-}
-
-.main-wrapper {
-    width: 90%;
-    max-width: 1000px;
-}
-
-.content-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Espacio entre fotos y centro */
+    font-family: 'Arial', sans-serif;
 }
 
-/* Estilos de las Fotos (Se mantienen igual) */
-.photo-container {
+.escena {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    max-width: 1200px;
+    gap: 15px;
+}
+
+/* Fotos laterales */
+.foto-lateral {
     position: relative;
-    width: 150px;
-    height: 220px;
-    border: 5px solid white;
+    width: 180px; /* Tamaño de las fotos */
+    height: 250px;
+    border: 8px solid white;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     overflow: hidden;
-    flex-shrink: 0; /* No dejan que las fotos se achiquen */
+    cursor: pointer;
+    flex-shrink: 0; /* Evita que las fotos se aplasten */
 }
 
-.photo {
+.foto-lateral img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(15px);
-    transition: filter 0.5s ease;
+    filter: blur(20px); /* Tapadas al inicio */
+    transition: 0.8s;
 }
 
-.overlay {
+.tapa {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: #ff80ab;
-    display: flex; justify-content: center; align-items: center;
-    color: white; font-weight: bold;
-    z-index: 2;
-    transition: opacity 0.5s ease;
-}
-
-.photo-container.revealed .overlay { opacity: 0; }
-.photo-container.revealed .photo { filter: blur(0); }
-
-/* Estilos de la Zona Central */
-.center-zone {
-    flex-grow: 1; /* Ocupa el espacio disponible en medio */
+    background: #ffb6c1;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    min-height: 300px;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+    transition: 0.5s;
 }
 
-/* Pastel (Animación e imagen) */
-.cake-container {
-    text-align: center;
-    cursor: pointer;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
+/* Revelar fotos */
+.foto-lateral.revelada img { filter: blur(0); }
+.foto-lateral.revelada .tapa { opacity: 0; pointer-events: none; }
 
-.cake-img {
-    width: 250px; /* Ajusta el tamaño de tu pastel aquí */
-    height: auto;
-    animation: float 3s ease-in-out infinite;
-}
-
-/* La carta (Inicialmente oculta) */
-.letter-container {
-    position: absolute;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    width: 100%;
+/* Centro */
+.centro {
+    flex-grow: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.letter-paper {
-    background-color: #fffde7; /* Color papel viejo/crema */
-    padding: 20px;
-    width: 80%;
-    height: 300px; /* Tamaño placeholder de la carta */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-radius: 5px;
-    position: relative;
-    overflow-y: auto; /* Por si el texto es muy largo */
-    color: #5d4037; /* Color de letra marrón oscuro */
+.pastel-animado {
+    width: 220px;
+    cursor: pointer;
+    animation: flotar 3s ease-in-out infinite;
 }
 
-/* Clase para ocultar elementos suavemente */
-.hidden {
-    opacity: 0;
-    transform: scale(0.9);
-    pointer-events: none; /* No se puede tocar mientras está oculto */
+.instruccion {
+    color: #d81b60;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-@keyframes float {
+/* Carta */
+.oculto { display: none; }
+
+.carta {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 400px;
+    border-left: 5px solid #ffb6c1;
+}
+
+@keyframes flotar {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    .escena { flex-direction: column; }
+    .foto-lateral { width: 140px; height: 180px; }
 }
