@@ -1,32 +1,25 @@
-// Función para reproducir música al tocar una foto
-function playMusic(element) {
-    // Revelar la foto visualmente
-    element.classList.add('revealed');
+function interactuar(elemento) {
+    // Revelar la foto al tocar
+    elemento.classList.add('revelada');
 
-    // Reproducir la música
-    const audio = document.getElementById('birthday-song');
-    
-    // Intentar reproducir (los navegadores bloquean el autoplay, por eso requiere interacción)
-    if (audio.paused) {
-        audio.play().catch(error => {
-            console.log("Esperando interacción para reproducir audio.");
-        });
-    }
+    // Reproducir música
+    const cancion = document.getElementById('musica-cumple');
+    cancion.play().catch(error => {
+        console.log("El navegador bloqueó el audio, pero sonará al siguiente toque.");
+    });
 }
 
-// Función para quitar el pastel y mostrar la carta
-function revealLetter() {
-    const cakeSection = document.getElementById('cake-section');
-    const letterSection = document.getElementById('letter-section');
+function revelarCarta() {
+    const pastel = document.getElementById('contenedor-pastel');
+    const carta = document.getElementById('contenedor-carta');
 
-    // Ocultamos el pastel
-    cakeSection.classList.add('hidden');
-
-    // Mostramos la carta después de un pequeño delay para que se vea la transición
+    // Efecto de desvanecimiento
+    pastel.style.opacity = '0';
+    
     setTimeout(() => {
-        // Aseguramos que el pastel no ocupe espacio físico
-        cakeSection.style.display = 'none'; 
-        // Mostramos la sección de la carta
-        letterSection.classList.remove('hidden');
-    }, 500); // 500ms coincide con el tiempo de transición en CSS
+        pastel.style.display = 'none';
+        carta.classList.remove('oculto');
+        // Pequeña animación de entrada para la carta
+        carta.style.animation = 'fadeIn 1s forwards';
+    }, 500);
 }
