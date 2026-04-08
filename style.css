@@ -191,3 +191,16 @@ body {
         height: 250px;
     }
 }
+/* Estilo para la My Melody del sello final */
+.melody-sello {
+    width: 60px; /* Tamaño pequeño, como un sello */
+    height: auto;
+    opacity: 0.9; /* Un poco translúcida */
+    margin-top: 10px;
+}
+
+/* Centrar el sello */
+.sello-final {
+    text-align: center;
+    margin-top: 15px;
+}
