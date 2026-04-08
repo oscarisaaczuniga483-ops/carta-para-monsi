@@ -18,24 +18,36 @@ body {
     gap: 10px;
 }
 
-/* Fotos laterales (Mismo estilo, posición fija) */
+/* Fotos laterales (Versión MÁS GRANDE) */
 .foto-lateral {
     position: relative;
-    width: 180px; /* Tamaño de las fotos */
-    height: 250px;
-    border: 8px solid white;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    /* --- ANTES --- */
+    /* width: 180px; */
+    /* height: 250px; */
+
+    /* --- AHORA --- */
+    width: 280px;  /* Aumentamos el ancho 100px */
+    height: 380px; /* Aumentamos el alto 130px */
+    
+    border: 10px solid white; /* Borde un poco más grueso para que resalte */
+    border-radius: 15px; /* Bordes un poco más redondeados */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2); /* Sombra un poco más profunda */
     overflow: hidden;
     cursor: pointer;
     flex-shrink: 0; /* Evita que las fotos se aplasten */
-    z-index: 1;
+    z-index: 1; /* Asegura que estén sobre el pastel si se tocan */
+    transition: transform 0.3s ease; /* Pequeña animación al pasar el mouse */
+}
+
+/* Efecto opcional: se agranda un poquito al pasar el mouse */
+.foto-lateral:hover {
+    transform: scale(1.03);
 }
 
 .foto-lateral img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Mantiene la proporción de la imagen sin deformarla */
     filter: blur(20px); /* Tapadas al inicio */
     transition: 0.8s;
 }
@@ -43,20 +55,21 @@ body {
 .tapa {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: #ffb6c1;
+    background: #ffb6c1; /* Rosa suave */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-weight: bold;
+    font-size: 1.2rem; /* Letra un poco más grande */
     z-index: 2;
     transition: 0.5s;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
 }
 
-/* Revelar fotos */
+/* Revelar fotos (Mismo código, solo para confirmar) */
 .foto-lateral.revelada img { filter: blur(0); }
 .foto-lateral.revelada .tapa { opacity: 0; pointer-events: none; }
 
