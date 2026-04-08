@@ -4,58 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños</title>
+    <!-- Google Fonts para la letra de la carta -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="escena">
+        <!-- FOTO IZQUIERDA -->
         <div class="foto-lateral" onclick="interactuar(this)">
-            <div class="tapa">Tóca aqui </div>
+            <div class="tapa">Tóca aqui ✨</div>
             <img src="foto1.jpg" alt="foto1xd">
         </div>
 
+        <!-- CENTRO: PASTEL O CARTA -->
         <div class="centro">
+            <!-- Sección del Pastel -->
             <div id="contenedor-pastel" onclick="revelarCarta()">
                <img src="pastel.png" alt="Pastel de Cumpleaños" class="pastel-animado-gigante">
-                <p class="instruccion">Toca el pastel mágico</p>
+               <p class="instruccion">Toca el pastel mágico</p>
             </div>
 
+            <!-- Sección de la Carta (Empieza oculta) -->
             <div id="contenedor-carta" class="oculto">
-    <div class="carta-clasica">
-        <div class="decoracion-superior">
-            <!-- Aquí va la My Melody pequeña -->
-            <img src="melody.png" alt="My Melody" class="melody-carta">
-        </div>
-        
-        <div id="contenedor-carta" class="oculto">
-    <div class="carta-clasica">
-        <div class="decoracion-superior">
-            <img src="melody.png" alt="My Melody" class="melody-carta">
-        </div>
-        
-        <div class="contenido-carta">
-            <h2 class="titulo-carta">Para mi persona favorita</h2>
-            
-            <div class="texto-mensaje">
-                <p>¡Feliz Cumpleaños!</p>
-                <p>A.</p>
-                <p>E.</p>
-                <p> I<br> <strong></strong>de parte de zuniga</p>
+                <div class="carta-clasica">
+                    <div class="decoracion-superior">
+                        <img src="melody.png" alt="My Melody" class="melody-carta">
+                    </div>
+                    
+                    <div class="contenido-carta">
+                        <h2 class="titulo-carta">Para mi persona favorita</h2>
+                        
+                        <div class="texto-mensaje">
+                            <p>¡Feliz Cumpleaños!</p>
+                            <p>A.</p>
+                            <p>E.</p>
+                            <p>I.</p>
+                            <p>De parte de Zuniga ❤️</p>
+                        </div>
+                    </div>
+                    
+                    <div class="sello-final">
+                        <img src="melody-corazon.png" alt="Sello My Melody Corazón" class="melody-sello">
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="sello-final">
-            <img src="melody-corazon.png" alt="Sello My Melody Corazón" class="melody-sello">
-</div>
-    </div>
-</div>
-   <div  
-       <div class="foto-lateral" onclick="interactuar(this)">
+
+        <!-- FOTO DERECHA -->
+        <div class="foto-lateral" onclick="interactuar(this)">
             <div class="tapa">Tócame ✨</div>
             <img src="foto2.jpg" alt="Recuerdo 2">
         </div>
     </div>
 
+    <!-- AUDIO -->
     <audio id="musica-cumple">
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
