@@ -6,18 +6,19 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Evita barras de desplazamiento */
 }
 
 .escena {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 95%;
-    max-width: 1200px;
-    gap: 15px;
+    justify-content: space-between; /* Fotos a los extremos, pastel al centro */
+    width: 98%;
+    max-width: 1400px; /* Un poco más ancho para dar espacio al pastel grande */
+    gap: 10px;
 }
 
-/* Fotos laterales */
+/* Fotos laterales (Mismo estilo, posición fija) */
 .foto-lateral {
     position: relative;
     width: 180px; /* Tamaño de las fotos */
@@ -28,6 +29,7 @@ body {
     overflow: hidden;
     cursor: pointer;
     flex-shrink: 0; /* Evita que las fotos se aplasten */
+    z-index: 1;
 }
 
 .foto-lateral img {
@@ -49,6 +51,9 @@ body {
     font-weight: bold;
     z-index: 2;
     transition: 0.5s;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 /* Revelar fotos */
@@ -62,18 +67,23 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    z-index: 0; /* Por debajo de las fotos si se tocan */
 }
 
-.pastel-animado {
-    width: 220px;
+/* --- EL CAMBIO PRINCIPAL AQUÍ --- */
+.pastel-animado-gigante {
+    width: 450px; /* ¡Ahora es gigante! Casi el doble que antes */
+    height: auto;
     cursor: pointer;
     animation: flotar 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); /* Sombra bonita al pastel */
 }
 
 .instruccion {
     color: #d81b60;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: -10px; /* Ajuste para que esté cerca del pastel */
+    font-size: 1.2em;
 }
 
 /* Carta */
@@ -84,17 +94,35 @@ body {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    max-width: 400px;
-    border-left: 5px solid #ffb6c1;
+    max-width: 450px; /* Un poco más ancha la carta también */
+    border-left: 8px solid #ffb6c1;
+    text-align: left;
+}
+
+.carta h3 {
+    color: #d81b60;
+    margin-top: 0;
 }
 
 @keyframes flotar {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-25px); } /* Flota un poco más alto */
 }
 
-/* Ajuste para celulares */
-@media (max-width: 600px) {
-    .escena { flex-direction: column; }
-    .foto-lateral { width: 140px; height: 180px; }
+/* Ajuste crítico para celulares */
+@media (max-width: 800px) {
+    .escena { 
+        flex-direction: column; /* Se ponen uno abajo del otro en vertical */
+        justify-content: center;
+        gap: 20px;
+        overflow-y: auto; /* Permite scroll si no cabe todo */
+        height: 100%;
+    }
+    .pastel-animado-gigante {
+        width: 280px; /* Se achica un poco en celular para que quepa */
+    }
+    .foto-lateral {
+        width: 140px;
+        height: 180px;
+    }
 }
