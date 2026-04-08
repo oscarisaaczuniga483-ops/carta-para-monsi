@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regalo de Cumpleaños</title>
+    <title>Feliz Cumpleaños</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="main-wrapper">
-        <div class="content-container">
-            
-            <div class="photo-container" onclick="playMusic(this)">
-                <div class="overlay">Tócame ✨</div>
-                <img src="foto1.jpg" alt="Foto 1" class="photo">
+    <div class="escena">
+        <!-- FOTO IZQUIERDA -->
+        <div class="foto-lateral" onclick="interactuar(this)">
+            <div class="tapa">Tócame ✨</div>
+            <img src="foto1.jpg" alt="Recuerdo 1">
+        </div>
+
+        <!-- CENTRO: PASTEL O CARTA -->
+        <div class="centro">
+            <div id="contenedor-pastel" onclick="revelarCarta()">
+                <img src="https://img.icons8.com/emoji/256/birthday-cake-emoji.png" alt="Pastel" class="pastel-animado">
+                <p class="instruccion">Toca el pastel</p>
             </div>
 
-            <div class="center-zone">
-                
-                <div id="cake-section" class="cake-container" onclick="revealLetter()">
-                    <img src="pastel.png" alt="Pastel de Cumpleaños" class="cake-img">
-                    <h1>¡Toca el pastel!</h1>
-                </div>
-
-                <div id="letter-section" class="letter-container hidden">
-                    <div class="letter-paper">
-                        <h2>Para ti...</h2>
-                        <p>Aquí escribirás tu mensaje especial más adelante.</p>
-                        <p>Puse un diseño básico por ahora esperando tus instrucciones.</p>
-                        <p>Con cariño,</p>
-                        <p>Yo ❤️</p>
+            <div id="contenedor-carta" class="oculto">
+                <div class="carta">
+                    <h3>Para mi persona favorita</h3>
+                    <div class="texto-carta">
+                        <!-- Aquí irá el mensaje que me digas luego -->
+                        <p>¡Hola! Esta es la carta que aparecerá al tocar el pastel.</p>
+                        <p>Las fotos de los lados se quedaron aquí contigo.</p>
                     </div>
                 </div>
-
             </div>
+        </div>
 
-            <div class="photo-container" onclick="playMusic(this)">
-                <div class="overlay">Tócame ✨</div>
-                <img src="foto2.jpg" alt="Foto 2" class="photo">
-            </div>
+        <!-- FOTO DERECHA -->
+        <div class="foto-lateral" onclick="interactuar(this)">
+            <div class="tapa">Tócame ✨</div>
+            <img src="foto2.jpg" alt="Recuerdo 2">
         </div>
     </div>
 
-    <audio id="birthday-song">
+    <audio id="musica-cumple">
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
