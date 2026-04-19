@@ -1,12 +1,12 @@
 body {
-    background: #fff0f5; /* Color lavanda/rosa muy suave */
+    background: #fff0f5; 
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Georgia', serif; /* Fuente más clásica y elegante por defecto */
-    overflow: hidden; /* Evita barras de desplazamiento en escritorio */
+    font-family: 'Georgia', serif; 
+    overflow: hidden;
 }
 
 /* --- AJUSTE DE ESCENA: MÁS ANCHA Y CON MÁS ESPACIO --- */
